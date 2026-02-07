@@ -6,7 +6,7 @@ This template provides everything you need to develop Home Assistant integration
 
 ## Features
 
-- ✅ **Python 3.14.2** - Latest Python with full async support
+- ✅ **Python 3.12.3** - Latest Python with full async support
 - ✅ **Home Assistant 2026.2.0** - Latest HA core
 - ✅ **Complete Testing Suite** - pytest with HA custom component support
 - ✅ **Code Quality Tools** - Ruff (linter/formatter), mypy (type checker)
@@ -255,17 +255,16 @@ This template helps you achieve Home Assistant integration quality tiers:
 This repository includes Claude Code skills for HA development:
 
 ```bash
-# Install skills (project-level, recommended)
-cp -r resources/skills/ha-skills ~/.claude/skills/
+# Install all skills (recommended)
+cp -r resources/skills/* ~/.claude/skills/
 ```
 
-Available skills:
-- `ha-integration-scaffold` - Generate integration structure
-- `ha-config-flow` - Config flow implementation
-- `ha-coordinator` - DataUpdateCoordinator patterns
-- `ha-entity-platforms` - Entity platform creation
-- `ha-testing` - Test writing guidance
-- `ha-debugging` - Troubleshooting assistance
+Available skill packages:
+- `ha-skills` - Complete HA development skills (scaffold, config-flow, coordinator, entities, testing, debugging)
+- `home-assistant-best-practices` - HA coding standards and patterns
+- `python` - Python development utilities
+- `uv-package-manager` - UV package manager skills
+- `verification-before-completion` - Quality verification workflows
 
 ## Environment Details
 
@@ -289,7 +288,7 @@ Available skills:
 
 ### Python Version
 
-- Python 3.14.2 (meets HA 2025.2+ requirement for Python 3.13+)
+- Python 3.12.3
 
 ## Troubleshooting
 

@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 **Date:** February 7, 2026
-**Template Version:** Python 3.14.2 | Home Assistant 2026.2.0
+**Template Version:** Python 3.12.3 | Home Assistant 2026.2.0
 
 This comprehensive guide documents the complete setup and usage of this Home Assistant integration development template, including AI agents, automation, and best practices.
 
@@ -27,7 +27,7 @@ This comprehensive guide documents the complete setup and usage of this Home Ass
 
 This is a production-ready template for developing Home Assistant custom integrations with:
 
-- ✅ **Complete Development Environment** - Python 3.14.2, HA 2026.2.0, all tools
+- ✅ **Complete Development Environment** - Python 3.12.3, HA 2026.2.0, all tools
 - ✅ **AI Agent Assistance** - Specialized agents for Claude Code, Copilot, Codex
 - ✅ **Automated Quality Enforcement** - CI/CD, pre-commit hooks, VS Code tasks
 - ✅ **Testing Framework** - pytest with HA custom component support
@@ -39,7 +39,7 @@ This is a production-ready template for developing Home Assistant custom integra
 
 | Feature | Description | Status |
 |---------|-------------|--------|
-| **Python Environment** | Virtual environment with Python 3.14.2 | ✅ Ready |
+| **Python Environment** | Virtual environment with Python 3.12.3 | ✅ Ready |
 | **Home Assistant** | HA Core 2026.2.0 installed | ✅ Ready |
 | **Testing** | pytest + pytest-homeassistant-custom-component | ✅ Ready |
 | **Linting** | Ruff (official HA standard) | ✅ Ready |
@@ -1669,7 +1669,7 @@ pytest tests/ -m "not slow"
 This Home Assistant integration template provides:
 
 ✅ **Complete Development Environment**
-- Python 3.14.2 + Home Assistant 2026.2.0
+- Python 3.12.3 + Home Assistant 2026.2.0
 - All tools configured and verified
 
 ✅ **AI Agent Assistance**

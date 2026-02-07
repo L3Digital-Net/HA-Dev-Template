@@ -1,4 +1,4 @@
-.PHONY: help verify test test-cov lint lint-fix format type-check quality clean install setup
+.PHONY: help verify test test-cov lint lint-fix format type-check quality clean install setup audit-docs
 
 # Default target
 .DEFAULT_GOAL := help
@@ -151,3 +151,9 @@ info: ## Show project information
 	@echo "  mypy:                  $$(mypy --version 2>/dev/null || echo 'Not installed')"
 	@echo "  pytest:                $$(pytest --version 2>/dev/null | head -1 || echo 'Not installed')"
 	@echo "  Virtual environment:   $$([ -n "$$VIRTUAL_ENV" ] && echo "$$VIRTUAL_ENV" || echo 'Not activated')"
+
+audit-docs: ## Run documentation audit to check doc-code alignment
+	@echo "$(BLUE)Running documentation audit...$(NC)"
+	@python scripts/audit_documentation.py --verbose
+	@echo ""
+	@echo "$(YELLOW)Tip: Review the audit report and fix any errors or warnings$(NC)"
