@@ -51,6 +51,11 @@ warn_unreachable = true
 strict_equality = true
 exclude = ["resources/"]  # Exclude example code with invalid package names
 
+# Ignore missing imports for Home Assistant (type stubs not always available)
+[[tool.mypy.overrides]]
+module = "homeassistant.*"
+ignore_missing_imports = true
+
 # Allow dynamic typing for test files
 [[tool.mypy.overrides]]
 module = "tests.*"

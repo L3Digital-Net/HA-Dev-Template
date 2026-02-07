@@ -28,6 +28,6 @@ repos:
     hooks:
       - id: mypy
         additional_dependencies:
+          - homeassistant
           - types-requests
-        args: [--strict, --ignore-missing-imports]
         exclude: ^(tests/|resources/)
