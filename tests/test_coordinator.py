@@ -59,7 +59,7 @@ async def test_coordinator_authentication_error(hass):
 
     # Update should raise ConfigEntryAuthFailed
     with pytest.raises(ConfigEntryAuthFailed):
-        await coordinator.async_refresh()
+        await coordinator._async_update_data()
 
 
 async def test_coordinator_connection_error(hass):
@@ -75,7 +75,7 @@ async def test_coordinator_connection_error(hass):
 
     # Update should raise UpdateFailed
     with pytest.raises(UpdateFailed):
-        await coordinator.async_refresh()
+        await coordinator._async_update_data()
 
 
 async def test_coordinator_unexpected_error(hass):
@@ -89,7 +89,7 @@ async def test_coordinator_unexpected_error(hass):
 
     # Update should raise UpdateFailed
     with pytest.raises(UpdateFailed):
-        await coordinator.async_refresh()
+        await coordinator._async_update_data()
 
 
 async def test_coordinator_update_interval(hass):

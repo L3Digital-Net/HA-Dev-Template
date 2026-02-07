@@ -4,6 +4,7 @@ from unittest.mock import patch
 
 from homeassistant import config_entries, data_entry_flow
 from homeassistant.const import CONF_API_KEY, CONF_HOST
+from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 from custom_components.example_integration.config_flow import (
     CannotConnect,
@@ -126,20 +127,17 @@ async def test_form_unknown_error(hass):
 
 async def test_form_already_configured(hass):
     """Test we handle already configured devices."""
-    # Create a config entry
-    config_entry = config_entries.ConfigEntry(
-        version=1,
+    # Create a mock config entry
+    config_entry = MockConfigEntry(
         domain=DOMAIN,
         title="Test Device",
         data={
             CONF_HOST: "192.168.1.100",
             CONF_API_KEY: "test_api_key",
         },
-        source=config_entries.SOURCE_USER,
         unique_id="test_device_123",
     )
-
-    hass.config_entries._entries[config_entry.entry_id] = config_entry
+    config_entry.add_to_hass(hass)
 
     with (
         patch(
