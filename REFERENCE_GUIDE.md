@@ -1608,9 +1608,17 @@ pytest tests/ -m "not slow"
 |----------|---------|
 | [README.md](README.md) | Project overview and quick start |
 | [CLAUDE.md](CLAUDE.md) | Instructions for Claude Code |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guidelines |
+| [CHANGELOG.md](CHANGELOG.md) | Version history |
 | [SETUP_COMPLETE.md](SETUP_COMPLETE.md) | Setup summary and verification |
 | [ha-dev-environment-requirements.md](ha-dev-environment-requirements.md) | Complete environment setup guide |
 | [.github/AUTOMATION_GUIDE.md](.github/AUTOMATION_GUIDE.md) | Detailed automation documentation |
+| [docs/QUALITY_CHECKLIST.md](docs/QUALITY_CHECKLIST.md) | Bronze → Platinum tier tracking |
+| [docs/HACS_INTEGRATION.md](docs/HACS_INTEGRATION.md) | Publishing to HACS |
+| [docs/SECURITY_BEST_PRACTICES.md](docs/SECURITY_BEST_PRACTICES.md) | Credential & API security |
+| [docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md) | Config entry migrations |
+| [docs/PERFORMANCE.md](docs/PERFORMANCE.md) | Coordinator optimization |
+| [docs/LOCALIZATION.md](docs/LOCALIZATION.md) | Multi-language support |
 | [resources/agents/.../README.md](resources/agents/ha-integration-agent/README.md) | Agent installation and usage |
 | [resources/agents/.../...spec.md](resources/agents/ha-integration-agent/ha_integration_agent_spec.md) | Comprehensive patterns and examples |
 

@@ -501,14 +501,24 @@ The agent can:
 
 ## Key Resources
 
+### Implementation Guides
+- [docs/QUALITY_CHECKLIST.md](docs/QUALITY_CHECKLIST.md) - Bronze → Platinum tier tracking
+- [docs/HACS_INTEGRATION.md](docs/HACS_INTEGRATION.md) - Publishing to HACS
+- [docs/SECURITY_BEST_PRACTICES.md](docs/SECURITY_BEST_PRACTICES.md) - Credential & API security
+- [docs/MIGRATION_GUIDE.md](docs/MIGRATION_GUIDE.md) - Config entry migrations
+- [docs/PERFORMANCE.md](docs/PERFORMANCE.md) - Coordinator optimization
+- [docs/LOCALIZATION.md](docs/LOCALIZATION.md) - Multi-language support
+
 ### Documentation
 - [ha-dev-environment-requirements.md](ha-dev-environment-requirements.md) - Complete environment guide
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
+- [CHANGELOG.md](CHANGELOG.md) - Version history
 - [resources/agents/ha-integration-agent/README.md](resources/agents/ha-integration-agent/README.md) - Agent usage guide
 - [resources/agents/ha-integration-agent/ha_integration_agent_spec.md](resources/agents/ha-integration-agent/ha_integration_agent_spec.md) - Comprehensive patterns
 
 ### Example Code
-- [custom_components/example_integration/](custom_components/example_integration/) - Reference implementation
-- [tests/](tests/) - Test examples
+- [custom_components/example_integration/](custom_components/example_integration/) - Working reference implementation
+- [tests/](tests/) - Complete test suite
 
 ### Official HA Documentation
 - [Home Assistant Developer Docs](https://developers.home-assistant.io/)

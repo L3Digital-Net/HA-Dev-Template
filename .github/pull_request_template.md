@@ -16,7 +16,7 @@ Please delete options that are not relevant.
 
 ## Integration Quality Scale
 
-Which quality tier does this PR target or improve?
+Which quality tier does this PR target or improve? See [docs/QUALITY_CHECKLIST.md](../docs/QUALITY_CHECKLIST.md) for detailed requirements.
 
 - [ ] Bronze (Config flow, basic tests, manifest)
 - [ ] Silver (Error handling, availability, documentation)
@@ -76,10 +76,10 @@ Please ensure all items are checked before submitting:
 - [ ] strings.json includes all UI text
 
 ### Documentation
+- [ ] **I have updated CHANGELOG.md with this change** (Required for all non-trivial changes)
 - [ ] I have updated the README.md (if needed)
-- [ ] I have updated the CHANGELOG.md (if exists)
 - [ ] I have added docstrings to new functions/classes
-- [ ] I have updated manifest.json (if needed)
+- [ ] I have updated manifest.json version (if releasing)
 
 ### Pre-commit Hooks
 - [ ] Pre-commit hooks pass: `pre-commit run --all-files`

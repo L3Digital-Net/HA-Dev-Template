@@ -189,7 +189,21 @@ This template helps you achieve Home Assistant integration quality tiers:
 
 ### Documentation
 
+**Implementation Guides:**
+- [📚 docs/](docs/) - Complete implementation guide directory
+  - [Quality Checklist](docs/QUALITY_CHECKLIST.md) - Track Bronze → Platinum progress
+  - [HACS Integration](docs/HACS_INTEGRATION.md) - Publishing to HACS
+  - [Security Best Practices](docs/SECURITY_BEST_PRACTICES.md) - Credential & API handling
+  - [Migration Guide](docs/MIGRATION_GUIDE.md) - Config entry version migrations
+  - [Performance](docs/PERFORMANCE.md) - Optimization patterns
+  - [Localization](docs/LOCALIZATION.md) - Multi-language support
+
+**Environment & Setup:**
 - [ha-dev-environment-requirements.md](ha-dev-environment-requirements.md) - Complete environment setup guide
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
+- [CHANGELOG.md](CHANGELOG.md) - Version history
+
+**Official HA Documentation:**
 - [Home Assistant Developer Docs](https://developers.home-assistant.io/)
 - [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/)
 
@@ -270,6 +284,12 @@ pip install pytest pytest-homeassistant-custom-component pytest-asyncio
 ```
 
 ## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for:
+- Development setup instructions
+- Code quality standards
+- Testing requirements
+- Pull request process
 
 This is a template repository. Fork it to create your own HA integration projects!
 
