@@ -126,15 +126,25 @@ def check_file_exists(path: Path, description: str) -> bool:
 
 def main() -> int:
     """Run all verification checks."""
+    import os
+
     project_root = Path(__file__).parent.parent
     results: dict[str, bool] = {}
+    is_ci = os.environ.get("CI") == "true"
 
     # Python Environment
     print_header("Python Environment")
     results["python_version"] = check_python_version()
-    results["venv"] = check_directory_exists(
-        project_root / "venv", "Virtual environment"
-    )
+
+    # Virtual environment check - optional in CI
+    venv_path = project_root / "venv"
+    if venv_path.exists() and venv_path.is_dir():
+        print_success(f"Virtual environment: {venv_path}")
+    elif is_ci:
+        print_warning(f"Virtual environment: {venv_path} - not found (skipped in CI)")
+    else:
+        print_error(f"Virtual environment: {venv_path} - not found")
+        results["venv"] = False
 
     # Core Dependencies
     print_header("Core Dependencies")
