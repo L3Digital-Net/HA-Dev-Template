@@ -36,9 +36,8 @@ This directory contains comprehensive implementation guides for developing Home 
 
 - **[../CLAUDE.md](../CLAUDE.md)** - AI assistant instructions and mandatory patterns
 - **[../REFERENCE_GUIDE.md](../REFERENCE_GUIDE.md)** - Comprehensive technical reference
-- **[../ha-dev-environment-requirements.md](../ha-dev-environment-requirements.md)** - Environment setup
+- **[../resources/ha-dev-environment-requirements.md](../resources/ha-dev-environment-requirements.md)** - Environment setup
 - **[../.github/AUTOMATION_GUIDE.md](../.github/AUTOMATION_GUIDE.md)** - CI/CD and automation
-- **[../resources/agents/ha-integration-agent/PATTERNS_COOKBOOK.md](../resources/agents/ha-integration-agent/PATTERNS_COOKBOOK.md)** - Code pattern examples
 
 ## How to Use This Documentation
 

@@ -28,7 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `test_config_flow.py` - Config flow validation tests
   - `test_coordinator.py` - Coordinator error handling tests
   - `test_sensor.py` - Sensor platform tests
-- Patterns cookbook in `resources/agents/ha-integration-agent/PATTERNS_COOKBOOK.md`
 
 ### Changed
 - Reorganized documentation structure with new `/docs/` directory
