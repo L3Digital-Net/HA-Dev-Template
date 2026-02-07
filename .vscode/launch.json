@@ -15,8 +15,7 @@
       "justMyCode": false,
       "env": {
         "PYTHONPATH": "${workspaceFolder}"
-      },
-      "purpose": ["debug-test"]
+      }
     },
     {
       "name": "Debug Current Test File",
@@ -32,8 +31,7 @@
       "justMyCode": false,
       "env": {
         "PYTHONPATH": "${workspaceFolder}"
-      },
-      "purpose": ["debug-test"]
+      }
     },
     {
       "name": "Debug Specific Test",
@@ -50,8 +48,7 @@
       "justMyCode": false,
       "env": {
         "PYTHONPATH": "${workspaceFolder}"
-      },
-      "purpose": ["debug-test"]
+      }
     },
     {
       "name": "Debug Tests with Coverage",
@@ -69,8 +66,7 @@
       "justMyCode": false,
       "env": {
         "PYTHONPATH": "${workspaceFolder}"
-      },
-      "purpose": ["debug-test"]
+      }
     },
     {
       "name": "Debug Integration Test (Config Flow)",
@@ -87,8 +83,7 @@
       "justMyCode": false,
       "env": {
         "PYTHONPATH": "${workspaceFolder}"
-      },
-      "purpose": ["debug-test"]
+      }
     },
     {
       "name": "Debug Integration Test (Coordinator)",
@@ -105,8 +100,7 @@
       "justMyCode": false,
       "env": {
         "PYTHONPATH": "${workspaceFolder}"
-      },
-      "purpose": ["debug-test"]
+      }
     },
     {
       "name": "Debug Failed Tests Only",
@@ -123,8 +117,7 @@
       "justMyCode": false,
       "env": {
         "PYTHONPATH": "${workspaceFolder}"
-      },
-      "purpose": ["debug-test"]
+      }
     }
   ],
   "inputs": [
