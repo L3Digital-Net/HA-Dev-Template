@@ -1,6 +1,8 @@
 # Home Assistant Integration Development Template
 
-A complete, production-ready template repository for developing Home Assistant custom integrations. Includes development environment setup, testing framework, code quality tools, and example integration structure.
+**Build production-grade Home Assistant custom integrations with confidence.**
+
+This template provides everything you need to develop Home Assistant integrations that meet or exceed the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/) standards. From initial setup to HACS publishing, you get a complete development environment with testing, code quality tools, working examples, and comprehensive documentation.
 
 ## Features
 
@@ -20,9 +22,10 @@ A complete, production-ready template repository for developing Home Assistant c
 ### 1. Clone and Setup
 
 ```bash
-# Clone this repository
-git clone <your-repo-url>
-cd ha-template
+# Use this template on GitHub (click "Use this template" button)
+# Then clone YOUR repository:
+git clone https://github.com/your-username/your-integration.git
+cd your-integration
 
 # The virtual environment and all dependencies are already installed!
 # Just activate the virtual environment
@@ -335,7 +338,9 @@ This is a template repository. Fork it to create your own HA integration project
 
 ## License
 
-[Your License Here]
+MIT License - see [LICENSE](LICENSE) file for details.
+
+This template is provided as-is for creating Home Assistant custom integrations. You're free to use it for any purpose, including commercial projects.
 
 ## Support
 
