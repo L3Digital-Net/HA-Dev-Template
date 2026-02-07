@@ -22,7 +22,7 @@ This document defines the required development environment for creating Home Ass
 
 **Current Standard (as of 2025):**
 - **Python 3.13+** is required for Home Assistant 2025.2 and later
-- Development environment uses **Python 3.12.3** (fully compatible with Python 3.13+ features)
+- Recommended development environment uses **Python 3.14.2** (satisfies and exceeds the 3.13+ minimum requirement)
 - Home Assistant maintains support for the latest two minor Python versions per ADR-0002
 
 **Important Notes:**
