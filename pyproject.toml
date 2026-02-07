@@ -1,6 +1,6 @@
 [project]
 name = "ha-template"
-version = "0.1.0"
+version = "1.0.0"
 description = "Home Assistant integration development template repository"
 requires-python = ">=3.13"
 readme = "README.md"
@@ -10,7 +10,7 @@ requires = ["setuptools>=68.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.ruff]
-target-version = "py313"
+target-version = "py314"
 line-length = 88
 
 [tool.ruff.lint]
@@ -32,7 +32,7 @@ ignore = [
 "tests/**" = ["D"]  # Don't require docstrings in tests
 
 [tool.mypy]
-python_version = "3.13"
+python_version = "3.14"
 strict = true
 warn_return_any = true
 warn_unused_configs = true

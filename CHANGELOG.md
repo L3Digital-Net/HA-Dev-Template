@@ -46,6 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - VS Code launch.json debug configurations (removed conflicting `purpose` property)
 - Environment verification script to skip venv check in CI environments
 - Repository structure: removed duplicate integration code files from agent directory
+- `pyproject.toml` version numbers: updated project version to 1.0.0, ruff target to py314, mypy to python 3.14
 
 ## [1.0.0] - 2026-02-07
 
