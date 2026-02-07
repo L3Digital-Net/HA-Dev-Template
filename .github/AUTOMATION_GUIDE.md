@@ -506,6 +506,114 @@ make coverage-report
 # Commit and push
 ```
 
+### Mypy Type Check Errors with Home Assistant
+
+**Cause:** Mypy can't find Home Assistant type stubs, or cache is corrupted
+
+**Symptoms:**
+- `error: Cannot find implementation or library stub for module named "homeassistant.*"`
+- `KeyError: 'setter_type'` (cache corruption)
+- Inconsistent results between manual mypy runs and pre-commit hooks
+
+**Solution:**
+```bash
+# 1. Clear mypy cache (fixes most issues)
+rm -rf .mypy_cache
+
+# 2. Verify mypy.ini configuration exists
+cat mypy.ini  # Should have [mypy-homeassistant.*] with ignore_missing_imports
+
+# 3. Check pre-commit config includes homeassistant
+grep -A 5 "id: mypy" .pre-commit-config.yaml
+# Should have homeassistant in additional_dependencies
+
+# 4. Update pre-commit environments
+pre-commit clean
+pre-commit install
+
+# 5. Test
+mypy custom_components/
+```
+
+**Why this happens:**
+- Home Assistant's type stubs aren't always available in mypy's typeshed
+- mypy caches type information, and stale caches cause mysterious errors
+- Pre-commit runs mypy in an isolated environment that needs homeassistant installed
+
+### Tests Can't Import custom_components
+
+**Cause:** Python path doesn't include the project root, or custom_components isn't a package
+
+**Symptoms:**
+- `ModuleNotFoundError: No module named 'custom_components'`
+- `ModuleNotFoundError: No module named 'custom_components.your_integration'`
+- Tests work individually but fail in pytest collection
+
+**Solution:**
+```bash
+# 1. Ensure custom_components/__init__.py exists
+touch custom_components/__init__.py
+
+# 2. Check conftest.py adds path to sys.path
+cat tests/conftest.py | grep -A 3 "sys.path"
+# Should have: sys.path.insert(0, str(custom_components_path.parent))
+
+# 3. Use module-level imports in tests (not inside test functions)
+# GOOD:
+# from custom_components.example_integration import PLATFORMS
+# async def test_something():
+#     assert PLATFORMS is not None
+#
+# BAD:
+# async def test_something():
+#     from custom_components.example_integration import PLATFORMS  # Don't do this
+
+# 4. Run tests with PYTHONPATH
+PYTHONPATH=. pytest tests/ -v
+```
+
+**Why this happens:**
+- Without `__init__.py`, Python doesn't treat custom_components as a package
+- Pytest needs the project root in sys.path to find custom_components
+- Imports inside async test functions happen after fixture setup, causing path issues
+
+### Pre-commit Hooks Pass but CI Fails (or vice versa)
+
+**Cause:** Pre-commit uses isolated environments with different configurations
+
+**Symptoms:**
+- `mypy` passes locally but fails in CI (or opposite)
+- Type errors appear only in pre-commit or only in CI
+- Different error messages from the same tool
+
+**Solution:**
+```bash
+# 1. Check if pre-commit config overrides tool configs
+cat .pre-commit-config.yaml
+
+# Look for args that override configs:
+# BAD: args: [--strict, --ignore-missing-imports]  # Overrides mypy.ini
+# GOOD: No args, or only non-conflicting ones
+
+# 2. Ensure pre-commit has same dependencies as CI
+# In .pre-commit-config.yaml:
+# additional_dependencies:
+#   - homeassistant  # Must match CI dependencies
+
+# 3. Rebuild pre-commit environments
+pre-commit clean
+pre-commit install
+pre-commit run --all-files
+
+# 4. Compare with CI
+make ci
+```
+
+**Why this happens:**
+- Pre-commit runs tools in isolated virtualenvs
+- Command-line args in `.pre-commit-config.yaml` override config files
+- Different dependency versions between environments cause different behavior
+
 ---
 
 ## Summary

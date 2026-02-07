@@ -726,6 +726,83 @@ pytest tests/test_config_flow.py -v
 pytest tests/test_config_flow.py::test_user_flow -v
 ```
 
+### Testing Best Practices
+
+#### ✅ DO: Module-Level Imports
+
+Import integration code at the module level, not inside test functions:
+
+```python
+# ✅ CORRECT - Module level
+from custom_components.your_integration import PLATFORMS, async_setup_entry
+
+async def test_setup():
+    assert async_setup_entry is not None
+
+# ❌ WRONG - Inside function
+async def test_setup():
+    from custom_components.your_integration import async_setup_entry  # Don't!
+    assert async_setup_entry is not None
+```
+
+**Why:** Pytest imports test modules during collection, before fixtures run. Module-level imports work correctly, but imports inside functions can fail with path resolution issues.
+
+#### ✅ DO: Clear Caches When Type Checking Fails
+
+```bash
+# Mypy giving weird errors? Clear cache!
+rm -rf .mypy_cache
+mypy custom_components/
+
+# Pre-commit mypy acting different? Rebuild environment
+pre-commit clean
+pre-commit install
+```
+
+**Why:** Mypy caches type information for performance. Stale caches cause confusing, inconsistent errors.
+
+#### ✅ DO: Test Both Ways
+
+```bash
+# Test with manual commands
+mypy custom_components/
+pytest tests/ -v
+
+# Test with pre-commit (what CI uses)
+pre-commit run --all-files
+
+# Test with full CI simulation
+make ci
+```
+
+**Why:** Pre-commit and CI run in isolated environments that can behave differently than your local setup.
+
+#### ✅ DO: Ensure Package Structure
+
+```bash
+# Required files for proper Python imports
+custom_components/__init__.py              # Makes it a package
+custom_components/your_integration/        # Your integration
+tests/conftest.py                          # Adds path to sys.path
+```
+
+**Why:** Without `__init__.py`, Python won't treat custom_components as a package, causing import errors.
+
+#### ❌ DON'T: Override Tool Configs in Pre-commit
+
+```yaml
+# ❌ BAD - Overrides mypy.ini
+- id: mypy
+  args: [--strict, --ignore-missing-imports]
+
+# ✅ GOOD - Uses mypy.ini
+- id: mypy
+  additional_dependencies:
+    - homeassistant
+```
+
+**Why:** Command-line args override config files, causing inconsistent behavior between manual runs and pre-commit.
+
 ### Quality Check Workflows
 
 #### Before Committing
@@ -1279,18 +1356,98 @@ make verify
 
 ### Testing Issues
 
-#### Problem: Tests Failing
+#### Problem: Tests Can't Import custom_components
 
+**Symptoms:**
 ```bash
-# Symptom
-FAILED tests/test_config_flow.py - ModuleNotFoundError
-
-# Solution
-make clean
-source venv/bin/activate
-make install
-make test
+ModuleNotFoundError: No module named 'custom_components'
+ModuleNotFoundError: No module named 'custom_components.your_integration'
 ```
+
+**Root Causes:**
+1. Missing `custom_components/__init__.py` - Python doesn't treat it as a package
+2. Project root not in Python path during tests
+3. Imports placed inside test functions instead of module level
+
+**Solution:**
+```bash
+# 1. Ensure __init__.py exists
+touch custom_components/__init__.py
+
+# 2. Verify conftest.py setup
+cat tests/conftest.py
+# Should contain:
+#   import sys
+#   from pathlib import Path
+#   custom_components_path = Path(__file__).parent.parent / "custom_components"
+#   sys.path.insert(0, str(custom_components_path.parent))
+
+# 3. Use module-level imports in tests
+# CORRECT:
+from custom_components.your_integration import PLATFORMS
+
+async def test_platforms():
+    assert PLATFORMS is not None
+
+# INCORRECT:
+async def test_platforms():
+    from custom_components.your_integration import PLATFORMS  # Don't import here!
+    assert PLATFORMS is not None
+
+# 4. Run tests
+source venv/bin/activate
+pytest tests/ -v
+```
+
+**Why:** Pytest imports test modules during collection phase, before fixtures run. Module-level imports work correctly, but imports inside test functions execute after fixture setup, which can cause path resolution issues.
+
+#### Problem: Mypy Type Check Failures
+
+**Symptoms:**
+```bash
+error: Cannot find implementation or library stub for module named "homeassistant.config_entries"
+error: Returning Any from function declared to return "bool"
+KeyError: 'setter_type'  # Cache corruption
+```
+
+**Root Causes:**
+1. Home Assistant type stubs not found by mypy
+2. Corrupted mypy cache
+3. Pre-commit mypy config differs from mypy.ini
+
+**Solution:**
+```bash
+# 1. Clear mypy cache (fixes most issues)
+rm -rf .mypy_cache
+
+# 2. Verify mypy.ini configuration
+cat mypy.ini
+# Should contain:
+#   [mypy-homeassistant]
+#   ignore_missing_imports = True
+#
+#   [mypy-homeassistant.*]
+#   ignore_missing_imports = True
+
+# 3. Update pre-commit config
+# In .pre-commit-config.yaml, ensure:
+#   - repo: https://github.com/pre-commit/mirrors-mypy
+#     hooks:
+#       - id: mypy
+#         additional_dependencies:
+#           - homeassistant  # Must be here!
+#           - types-requests
+
+# 4. Rebuild pre-commit environment
+pre-commit clean
+pre-commit install
+
+# 5. Test both ways
+mypy custom_components/              # Direct mypy
+pre-commit run mypy --all-files      # Pre-commit mypy
+```
+
+**Why:** Mypy caches type information for performance. Stale caches cause confusing errors. Pre-commit runs mypy in an isolated environment that needs homeassistant installed separately.
 
 #### Problem: Coverage Decreased
 
