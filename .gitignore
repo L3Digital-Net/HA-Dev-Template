@@ -182,9 +182,9 @@ cython_debug/
 .abstra/
 
 # Visual Studio Code
-#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore 
+#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore
 #  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
-#  and can be added to the global gitignore or merged into this file. However, if you prefer, 
+#  and can be added to the global gitignore or merged into this file. However, if you prefer,
 #  you could uncomment the following to ignore the entire vscode folder
 # .vscode/
 
@@ -205,3 +205,25 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ============================================================================
+# HOME ASSISTANT INTEGRATION TEMPLATE - AI INSTRUCTION FILES
+# ============================================================================
+# The following files MUST be tracked in version control for this template:
+#
+# ✅ INCLUDE (DO NOT IGNORE):
+# - .github/copilot-instructions.md       (GitHub Copilot auto-detection)
+# - .vscode/codex-instructions.md         (VS Code Codex integration)
+# - resources/agents/                      (HA integration agent files)
+# - CLAUDE.md                              (Claude Code project instructions)
+# - REFERENCE_GUIDE.md                     (Comprehensive documentation)
+# - .github/AUTOMATION_GUIDE.md            (Automation documentation)
+# - .github/workflows/                     (CI/CD pipelines)
+# - .github/ISSUE_TEMPLATE/                (Issue templates)
+# - .github/pull_request_template.md       (PR template)
+# - .vscode/tasks.json                     (VS Code tasks)
+# - Makefile                               (CLI commands)
+#
+# These files provide AI-powered development assistance and complete automation
+# infrastructure. They are essential for the template's value proposition.
+# ============================================================================
