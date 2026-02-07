@@ -1,0 +1,91 @@
+name: Bug Report
+description: Report a bug or issue with an integration
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please fill out the information below to help us diagnose the issue.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: The integration fails to load when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Configure integration with...
+        2. Restart Home Assistant
+        3. See error in logs
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What you expected to happen
+      placeholder: The integration should load successfully and...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output
+      render: shell
+      placeholder: |
+        2026-02-07 00:00:00 ERROR (MainThread) [custom_components.my_integration] ...
+
+  - type: input
+    id: ha-version
+    attributes:
+      label: Home Assistant Version
+      description: What version of Home Assistant are you running?
+      placeholder: "2026.2.0"
+    validations:
+      required: true
+
+  - type: input
+    id: integration-version
+    attributes:
+      label: Integration Version
+      description: What version of the integration are you using?
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python Version
+      description: What version of Python is Home Assistant using?
+      placeholder: "3.13.0"
+    validations:
+      required: false
+
+  - type: textarea
+    id: configuration
+    attributes:
+      label: Configuration
+      description: Your integration configuration (remove sensitive information!)
+      render: yaml
+      placeholder: |
+        # Config flow or configuration.yaml snippet
+        # REMOVE API keys, passwords, and personal information!
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here
+      placeholder: This started happening after upgrading to HA 2026.2...

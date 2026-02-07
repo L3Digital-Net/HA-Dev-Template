@@ -1,0 +1,76 @@
+name: Feature Request
+description: Suggest a new feature or enhancement
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Please provide as much detail as possible.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Is your feature request related to a problem?
+      description: A clear description of what the problem is
+      placeholder: I'm always frustrated when...
+    validations:
+      required: false
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like
+      description: A clear description of what you want to happen
+      placeholder: I would like the integration to support...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Describe alternatives you've considered
+      description: Any alternative solutions or features you've considered
+      placeholder: I considered using... but it doesn't...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Which entity platform is this for?
+      description: Select the platform(s) this feature applies to
+      multiple: true
+      options:
+        - Sensor
+        - Binary Sensor
+        - Switch
+        - Light
+        - Climate
+        - Cover
+        - Fan
+        - Lock
+        - Media Player
+        - Camera
+        - Button
+        - Number
+        - Select
+        - Text
+        - Other / Multiple
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: willingness
+    attributes:
+      label: Are you willing to help implement this?
+      description: Let us know if you'd like to contribute to this feature
+      options:
+        - label: I'm willing to submit a pull request for this feature
+        - label: I can help test this feature
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Add any other context, screenshots, or examples about the feature request
+      placeholder: Here's an example of how another integration does this...
