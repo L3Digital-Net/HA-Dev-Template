@@ -37,7 +37,7 @@ This repository is a **template** for developing Home Assistant custom integrati
 
 ### Prerequisites
 
-- Python 3.14.2 or later
+- Python 3.12.3 or later
 - Git
 - Home Assistant 2026.2.0 (installed in venv)
 

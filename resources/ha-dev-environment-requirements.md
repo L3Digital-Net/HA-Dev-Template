@@ -22,7 +22,7 @@ This document defines the required development environment for creating Home Ass
 
 **Current Standard (as of 2025):**
 - **Python 3.13+** is required for Home Assistant 2025.2 and later
-- Development environment should use **Python 3.14.2 or higher** to avoid compatibility issues
+- Development environment uses **Python 3.12.3** (fully compatible with Python 3.13+ features)
 - Home Assistant maintains support for the latest two minor Python versions per ADR-0002
 
 **Important Notes:**
@@ -80,7 +80,7 @@ code .
 ### Option 2: Local Virtual Environment
 
 **Prerequisites:**
-- Python 3.14.2 or higher
+- Python 3.12.3 or higher
 - Git
 - Operating system-specific build tools (see below)
 
@@ -501,7 +501,7 @@ cp -r resources/skills/ha-skills ~/.claude/skills/
 Use this checklist to verify your development environment is properly configured:
 
 ### Python Environment
-- [ ] Python 3.14.2+ installed
+- [ ] Python 3.12.3+ installed
 - [ ] Virtual environment created and activated
 - [ ] `homeassistant` package installed
 - [ ] Python version verified: `python --version`
@@ -648,7 +648,7 @@ ruff --version
 **Home Assistant won't start:**
 ```bash
 # Check Python version
-python --version  # Should be 3.14.2+
+python --version  # Should be 3.12.3+
 
 # Check for dependency issues
 pip check

@@ -6,7 +6,7 @@ This file provides guidance to Claude Code when working with this Home Assistant
 
 This is a **production-ready template repository** for developing Home Assistant custom integrations. It includes:
 
-- Complete Python 3.14.2 development environment
+- Complete Python 3.12.3 development environment
 - Home Assistant 2026.2.0 with all core dependencies
 - Testing framework (pytest + HA custom component support)
 - Code quality tools (Ruff, mypy, pre-commit hooks)
@@ -32,7 +32,7 @@ python scripts/verify_environment.py
 
 ### Installed Versions
 
-- **Python:** 3.14.2 (meets HA 2025.2+ requirement for Python 3.13+)
+- **Python:** 3.12.3
 - **Home Assistant:** 2026.2.0
 - **Testing:** pytest 9.0.0, pytest-homeassistant-custom-component 0.13.313
 - **Code Quality:** Ruff 0.15.0, mypy 1.19.1, pre-commit 4.5.1

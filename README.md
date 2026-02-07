@@ -6,7 +6,7 @@ This template provides everything you need to develop Home Assistant integration
 
 ## Features
 
-- ✅ **Python 3.14.2** - Latest Python with full async support
+- ✅ **Python 3.12.3** - Latest Python with full async support
 - ✅ **Home Assistant 2026.2.0** - Latest HA core
 - ✅ **Complete Testing Suite** - pytest with HA custom component support
 - ✅ **Code Quality Tools** - Ruff (linter/formatter), mypy (type checker)
@@ -289,7 +289,7 @@ Available skills:
 
 ### Python Version
 
-- Python 3.14.2 (meets HA 2025.2+ requirement for Python 3.13+)
+- Python 3.12.3
 
 ## Troubleshooting
 
