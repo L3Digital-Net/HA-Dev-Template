@@ -421,6 +421,38 @@ When adding features, update relevant documentation:
 - `CHANGELOG.md` - All changes
 - Code comments - Complex logic
 
+### Documentation Maintenance
+
+We use an automated documentation audit system to ensure docs stay in sync with code:
+
+```bash
+# Run the documentation audit
+make audit-docs
+
+# Or directly
+python scripts/audit_documentation.py --verbose
+```
+
+**When to run the audit:**
+- Before committing documentation changes
+- After updating code that affects documentation
+- Before releases
+
+**What it checks:**
+- Version numbers (Python, HA, packages) match actual versions
+- File and directory references exist
+- Code examples are syntactically correct
+- Manifest files are valid
+- Skills directory structure matches docs
+
+**Fixing audit issues:**
+1. Review the audit report
+2. Fix **errors** (❌) immediately - these block functionality
+3. Address **warnings** (⚠️) if they're legitimate issues
+4. Consider **info** (ℹ️) suggestions for improvements
+
+See [docs/DOCUMENTATION_AUDIT.md](docs/DOCUMENTATION_AUDIT.md) for complete audit tool documentation.
+
 ### Writing Examples
 
 Provide complete, runnable examples:
