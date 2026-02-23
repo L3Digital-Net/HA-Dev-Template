@@ -55,7 +55,7 @@ Security concerns for the template repository itself:
 If you discover a security vulnerability in **the template itself** (scripts, CI, example code):
 
 1. **DO NOT** open a public issue
-2. **Email:** Create a [security advisory](https://github.com/L3DigitalNet/HA-Dev-Template/security/advisories/new)
+2. **Email:** Create a [security advisory](https://github.com/L3Digital-Net/HA-Dev-Template/security/advisories/new)
 3. **Include:**
    - Description of the vulnerability
    - Steps to reproduce
@@ -171,11 +171,11 @@ We appreciate responsible disclosure of security vulnerabilities. Contributors w
 ## Questions?
 
 For security-related questions (not vulnerabilities):
-- [Discussions](https://github.com/L3DigitalNet/HA-Dev-Template/discussions)
+- [Discussions](https://github.com/L3Digital-Net/HA-Dev-Template/discussions)
 - [Security Best Practices Guide](docs/SECURITY_BEST_PRACTICES.md)
 
 For non-security bugs:
-- [Issues](https://github.com/L3DigitalNet/HA-Dev-Template/issues)
+- [Issues](https://github.com/L3Digital-Net/HA-Dev-Template/issues)
 
 ---
 
