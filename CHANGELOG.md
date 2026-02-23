@@ -114,7 +114,7 @@ Maintainers will move items to a versioned release section when releasing.
 
 - [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
-- [GitHub Releases](https://github.com/L3DigitalNet/HA-Dev-Template/releases)
+- [GitHub Releases](https://github.com/L3Digital-Net/HA-Dev-Template/releases)
 
-[Unreleased]: https://github.com/L3DigitalNet/HA-Dev-Template/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/L3DigitalNet/HA-Dev-Template/releases/tag/v1.0.0
+[Unreleased]: https://github.com/L3Digital-Net/HA-Dev-Template/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/L3Digital-Net/HA-Dev-Template/releases/tag/v1.0.0
