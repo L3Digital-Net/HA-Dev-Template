@@ -99,7 +99,9 @@ class AuditReport:
                     "info": "ℹ️ ",
                 }[issue.severity]
 
-                print(f"\n{severity_symbol} [{issue.severity.upper()}] {issue.category}")
+                print(
+                    f"\n{severity_symbol} [{issue.severity.upper()}] {issue.category}"
+                )
                 print(f"   File: {issue.file}")
                 if issue.line:
                     print(f"   Line: {issue.line}")
@@ -223,7 +225,9 @@ class DocumentationAuditor:
                                         self.report.add_issue(
                                             severity="warning",
                                             category="version_mismatch",
-                                            file=str(md_file.relative_to(self.repo_root)),
+                                            file=str(
+                                                md_file.relative_to(self.repo_root)
+                                            ),
                                             line=line_num,
                                             description=f"{package} version mismatch: documented as {version}, installed is {actual_version}",
                                             suggestion=f"Update to {package}=={actual_version} or install correct version",
@@ -241,7 +245,9 @@ class DocumentationAuditor:
         # Patterns for file/directory references
         patterns = [
             re.compile(r"`([a-zA-Z0-9_/.-]+\.(py|json|md|yaml|yml|toml|txt))`"),
-            re.compile(r"\[.*?\]\(([a-zA-Z0-9_/.-]+(?:\.(py|json|md|yaml|yml|toml|txt))?)\)"),
+            re.compile(
+                r"\[.*?\]\(([a-zA-Z0-9_/.-]+(?:\.(py|json|md|yaml|yml|toml|txt))?)\)"
+            ),
             re.compile(r"^[\s-]*([a-zA-Z0-9_/.-]+/)$", re.MULTILINE),
         ]
 
@@ -370,8 +376,7 @@ class DocumentationAuditor:
             for code_block in code_blocks:
                 # Skip examples with placeholders
                 if any(
-                    p in code_block
-                    for p in ["...", "your_", "my_", "<", ">", "# "]
+                    p in code_block for p in ["...", "your_", "my_", "<", ">", "# "]
                 ):
                     continue
 
@@ -409,7 +414,9 @@ class DocumentationAuditor:
 
         # Check what skills actually exist
         actual_skills = [
-            d.name for d in skills_dir.iterdir() if d.is_dir() and not d.name.startswith(".")
+            d.name
+            for d in skills_dir.iterdir()
+            if d.is_dir() and not d.name.startswith(".")
         ]
 
         # Check documentation for skill references
