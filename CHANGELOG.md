@@ -52,7 +52,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Initial template release
-- Python 3.14.2 development environment
+- Python 3.12.3 development environment
 - Home Assistant 2026.2.0 with all core dependencies
 - Testing framework (pytest + HA custom component support)
 - Code quality tools (Ruff 0.15.0, mypy 1.19.1, pre-commit 4.5.1)

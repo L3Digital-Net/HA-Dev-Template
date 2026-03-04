@@ -4,7 +4,7 @@
 Home Assistant Custom Integration Development Template
 
 ## Environment
-- Python 3.14.2 (HA 2025.2+ requires Python 3.13+)
+- Python 3.12.3
 - Home Assistant 2026.2.0
 - Testing: pytest + pytest-homeassistant-custom-component
 - Code Quality: Ruff (linter/formatter) + mypy (type checker)

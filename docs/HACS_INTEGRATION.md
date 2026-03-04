@@ -124,7 +124,7 @@ Use the **oldest Home Assistant version** your integration supports:
 # Check what HA features you use and when they were introduced
 # Common version milestones:
 # 2024.4.0 - Python 3.12 minimum
-# 2024.11.0 - Python 3.12.4 minimum
+# 2024.11.0 - Python 3.12.3 minimum
 # 2025.2.0 - Python 3.13 minimum
 
 # Conservative approach: Test on oldest version you claim to support

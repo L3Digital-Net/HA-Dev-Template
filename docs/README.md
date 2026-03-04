@@ -12,6 +12,7 @@ This directory contains comprehensive implementation guides for developing Home 
 | [Migration Guide](MIGRATION_GUIDE.md) | Config entry version migrations | Maintenance |
 | [Performance](PERFORMANCE.md) | Optimization and efficiency tips | Intermediate+ |
 | [Localization](LOCALIZATION.md) | Multi-language support | I18n implementation |
+| [Documentation Audit](DOCUMENTATION_AUDIT.md) | Automated doc-code alignment tool | Maintainers |
 
 ## Documentation Organization
 
